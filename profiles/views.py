@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import generics, filters
+from django_filters.rest_framework import DjangoFilterBackend
+from .models import Profile
 
-# Create your views here.
+
+class ProfileList(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
