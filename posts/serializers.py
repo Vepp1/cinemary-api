@@ -1,7 +1,6 @@
 
 from rest_framework import serializers
-from posts.models import Post
-from likes.models import Likes
+from posts.models import Posts
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -15,7 +14,7 @@ class PostSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model = Post
+        model = Posts
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
