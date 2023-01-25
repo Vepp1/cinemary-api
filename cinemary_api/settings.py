@@ -47,6 +47,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 
 # Quick-start development settings - unsuitable for production
@@ -56,9 +57,19 @@ JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'cinemary-api.herokuapp.com', '127.0.0.1']
+
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN'),
+        "http://localhost:3000",
+        "http://192.168.1.236:3000",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -74,18 +85,20 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'rest_framework.authtoken',
-    'dj_rest_auth',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'corsheaders',
+    'dj_rest_auth',
     'profiles',
 ]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
