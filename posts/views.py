@@ -13,3 +13,9 @@ class PostList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Posts.objects.all().order_by('-created_at')
