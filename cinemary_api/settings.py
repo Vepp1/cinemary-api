@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'profiles',
     'posts',
+    'likes',
 ]
 
 SITE_ID = 1
@@ -143,7 +144,7 @@ if 'DEV' in os.environ:
 else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
-}   
+    }
 
 
 # Password validation
