@@ -8,6 +8,7 @@ class CommentsSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
+    is_owner = serializers.SerializerMethodField()
 
     def get_created_at(self, obj):
         return naturaltime(obj.created_at)
@@ -15,9 +16,14 @@ class CommentsSerializer(serializers.ModelSerializer):
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
 
+    def get_is_owner(self, obj):
+        request = self.context['request']
+        return request.user == obj.owner
+
     class Meta:
         model = Comments
         fields = [
             'id', 'owner',  'profile_id',
-            'post', 'created_at', 'updated_at', 'content'
+            'post', 'created_at', 'updated_at', 'content',
+            'is_owner'
         ]
