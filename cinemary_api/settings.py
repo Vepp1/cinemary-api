@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import re
 
 if os.path.exists('env.py'):
     import env
@@ -67,6 +68,13 @@ if 'CLIENT_ORIGIN' in os.environ:
         os.environ.get('CLIENT_ORIGIN'),
         "http://localhost:3000",
         "http://192.168.1.236:3000",
+    ]
+
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(
+        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
 CORS_ALLOW_CREDENTIALS = True
