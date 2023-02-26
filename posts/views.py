@@ -17,10 +17,16 @@ class PostList(generics.ListCreateAPIView):
         filters.SearchFilter,
         DjangoFilterBackend
     ]
+    filterset_fields = [
+        'likes__owner__profile',
+    ]
     search_fields = [
         'owner__username',
         'title',
         'genrer',
+    ]
+    ordering_fields = [
+        'likes__created_at',
     ]
 
     def perform_create(self, serializer):
