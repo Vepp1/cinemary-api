@@ -7,7 +7,7 @@ class Posts(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    genrer = models.CharField(max_length=255)
+    genre = models.CharField(max_length=255)
     content = models.TextField()
     image = models.ImageField(
         upload_to='images/',
@@ -18,4 +18,3 @@ class Posts(models.Model):
 
     def __str__(self):
         return f'{self.id} {self.title}'
-
