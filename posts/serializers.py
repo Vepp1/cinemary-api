@@ -23,6 +23,19 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def validate_image(self, value):
+        if value.size > 2 * 1024 * 1024:
+            raise serializers.ValidationError('Image size larger than 2MB!')
+        if value.image.height < 1000:
+            raise serializers.ValidationError(
+                'Image height too small!'
+            )
+        if value.image.width > 2000:
+            raise serializers.ValidationError(
+                'Image width larger than 2000px!'
+            )
+        return value
+
     class Meta:
         model = Posts
         fields = [
