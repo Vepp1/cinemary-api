@@ -71,8 +71,8 @@ There are no present bugs in this version.
 
 ## Deployment
 
-- The live link can be found [here](https://vegancaju.herokuapp.com/).
-- [GitHub Repo](https://github.com/Vepp1/cinemary).
+- The live link can be found [here](https://cinemary-api.herokuapp.com/).
+- [GitHub Repo](https://github.com/Vepp1/cinemary-api).
 
 #### GitHub/GitPod
 
