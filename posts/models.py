@@ -8,6 +8,8 @@ class Posts(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=50)
     genre = models.CharField(max_length=50)
+    director = models.CharField(max_length=50)
+    release_at = models.DateTimeField()
     content = models.TextField()
     image = models.ImageField(
         upload_to='images/',
