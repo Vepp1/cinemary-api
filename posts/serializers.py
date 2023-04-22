@@ -43,4 +43,5 @@ class PostSerializer(serializers.ModelSerializer):
             'created_at', 'updated_at',
             'title', 'content', 'image', 'genre',
             'like_id', 'likes_count', 'comments_count',
+            'director', 'release_at',
         ]
