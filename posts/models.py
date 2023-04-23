@@ -9,7 +9,7 @@ class Posts(models.Model):
     title = models.CharField(max_length=50)
     genre = models.CharField(max_length=50)
     director = models.CharField(max_length=50)
-    release_at = models.DateTimeField()
+    release_at = models.DateField()
     content = models.TextField()
     image = models.ImageField(
         upload_to='images/',
