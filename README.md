@@ -74,7 +74,16 @@ There are no present bugs in this version.
 - The live link can be found [here](https://cinemary-api.herokuapp.com/).
 - [GitHub Repo](https://github.com/Vepp1/cinemary-api).
 
-#### GitHub/GitPod
+### Heroku
+
+- Deploying to Heroku:
+  - Access www.heroku.com.
+  - Click on new and Create New App.
+  - Choose an App name and a region and Create App.
+  - On the Deployment tab, connect to Github and choose the proper repository.
+  - Deploy Branch.
+
+### GitHub/GitPod
 
 - Forking the GitHub Repository:
 
