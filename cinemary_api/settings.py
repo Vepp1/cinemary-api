@@ -69,6 +69,8 @@ if 'CLIENT_ORIGIN' in os.environ:
         os.environ.get('CLIENT_ORIGIN'),
         "http://localhost:3000",
         "http://192.168.1.236:3000",
+        "http://cinemary.herokuapp.com",
+
     ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
