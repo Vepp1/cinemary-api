@@ -24,6 +24,8 @@ class PostList(generics.ListCreateAPIView):
         'owner__username',
         'title',
         'genre',
+        'director',
+        'actors',
     ]
     ordering_fields = [
         'likes__created_at',
