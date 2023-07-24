@@ -58,6 +58,19 @@ Backend application built using Django REST that allows account, posts, comments
 - After logging into an account try to access go to create and try to add a post with an exceptionally long title or genre.
 - Result: Error will be displayed and a post will not be created.
 
+### Create or edit a post with a title or genre with more than 50 characters.
+
+- After logging into an account try to access go to create and try to add a post with an exceptionally long title or genre.
+- Result: Error will be displayed and a post will not be created.
+
+### Verify response payload and status code.
+
+- Result: All JSON responses are sending correct field names, types and values. Permited requests are returning 200 status and unpermitted 400.
+
+### Verify basic performance
+
+- Result: All operations are being completed in a reasonable amount of time.
+
 ### Validator Testing
 
 - PEP8
@@ -80,6 +93,7 @@ There are no present bugs in this version.
   - Access www.heroku.com.
   - Click on new and Create New App.
   - Choose an App name and a region and Create App.
+  - Set the config vars to connect to database and set allowed hosts.
   - On the Deployment tab, connect to Github and choose the proper repository.
   - Deploy Branch.
 
