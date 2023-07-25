@@ -19,7 +19,9 @@ Backend application built using Django REST that allows account, posts, comments
 - created_at - Datetime field set automatically when a post is created.
 - updated_at - Datetime field set automatically when a post is updated.
 - title - Character field with a max length of 50.
-- genre - Character field with a max length of 50.
+- genre - Character field with a max length of 25.
+- actors - Character field with a max length of 100.
+- director - Character field with a max length of 50.
 - content - Text field.
 - image - Image field.
 
@@ -43,9 +45,14 @@ Backend application built using Django REST that allows account, posts, comments
 
 ### Manual Testing
 
-### Edit or delete posts/comments from another user or being logged out.
+### Create post being logged out.
 
-- Access a post or comment through the address bar using the /posts/'id' or /comments/'id' and try to delete or edit it.
+- Access /posts and try to create post.
+- Result: Create post functionality is not available to logged out users.
+
+### Edit or delete posts user or being logged out.
+
+- Access a post through the address bar using the /posts/'id' or /comments/'id' and try to delete or edit it.
 - Result: The page is going to be a Read-Only, due to permission classes.
 
 ### Create or edit a post with an image of an invalid format.
@@ -53,15 +60,35 @@ Backend application built using Django REST that allows account, posts, comments
 - After logging into an account, access /post and try to create a review with an image that is not a jpeg file.
 - Result: Error will be displayed and a post will not be created.
 
-### Create or edit a post with a title or genre with more than 50 characters.
+### Create or edit a post with fields with more than 50 characters.
 
-- After logging into an account try to access go to create and try to add a post with an exceptionally long title or genre.
+- After logging into an account try to to add a post with an exceptionally long title, genre or director.
 - Result: Error will be displayed and a post will not be created.
 
-### Create or edit a post with a title or genre with more than 50 characters.
+### Like a Post without being logged in.
 
-- After logging into an account try to access go to create and try to add a post with an exceptionally long title or genre.
-- Result: Error will be displayed and a post will not be created.
+- Access /likes and try to like one of the existing posts.
+- Result: Like functionality is not available to logged out users.
+
+### Like same post twice.
+
+- Access /likes and try to like one post you previously liked.
+- Result: Message displayed saying that duplicate is not allowed.
+
+### Delete like made by another user.
+
+- Access the like detail page /likes/'like_id' and try to delete it.
+- Result: The page is going to be a Read-Only, due to permission classes.
+
+### Create comment being logged out.
+
+- Access /comments and try to create comment on a existing post.
+- Result: Create comment functionality is not available to logged out users.
+
+### Edit or delete comments from another user.
+
+- Access a comment through the address bar using /comments/'id' and try to delete or edit it.
+- Result: The page is going to be a Read-Only, due to permission classes.
 
 ### Verify response payload and status code.
 
@@ -93,7 +120,8 @@ There are no present bugs in this version.
   - Access www.heroku.com.
   - Click on new and Create New App.
   - Choose an App name and a region and Create App.
-  - Set the config vars to connect to database and set allowed hosts.
+  - Acces Settings tab.
+  - Set the config vars to connect to database, cloudinary and allowed host.
   - On the Deployment tab, connect to Github and choose the proper repository.
   - Deploy Branch.
 
@@ -115,5 +143,23 @@ There are no present bugs in this version.
   - Now open Gitpod & select the directory location where you would like the clone created.
 
   - In the terminal type 'git clone & then paste the link you copied in GitHub. - Press enter and your local clone will be created.
+
+  ### Front End
+
+  - To connect with Front End application:
+
+    - Add the frontend url to CORS_ALLOWED_ORIGINS and CLIENT_ORIGIN.
+    - Retrieve reviews with GET cinemary-api.herokuapp.com/posts. 
+    - Create, update or delete reviews with POST, PUT, DELETE /posts/{post_id}
+    - Retrieve comments with GET cinemary-api.herokuapp.com/comments. 
+    - Create, update or delete coments with POST, PUT, DELETE /comments/{comment_id}
+    - Retrieve likes with GET cinemary-api.herokuapp.com/likes. 
+    - Create or delete likes with POST, PUT /likes/{like_id}
+    - Signup requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/registration/ with POST.
+    - Signin requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/login/ with POST.
+    - Logout requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/logout/ with POST.
+    - Password change requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/password/change/ with POST.
+    - Username change requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/user/ with POST.
+    
 
 ---
