@@ -149,12 +149,12 @@ There are no present bugs in this version.
   - To connect with the Front End application:
 
     - Add the frontend url to CORS_ALLOWED_ORIGINS and CLIENT_ORIGIN.
-    - Retrieve reviews with GET cinemasry-api.herokuapp.com/posts. 
+    - Retrieve reviews with GET cinemary-api.herokuapp.com/posts. 
     - Create, update, or delete reviews with POST, PUT, DELETE /posts/{post_id}
     - Retrieve comments with GET cinemary-api.herokuapp.com/comments. 
     - Create, update, or delete comments with POST, PUT, DELETE /comments/{comment_id}
     - Retrieve likes with GET cinemary-api.herokuapp.com/likes. 
-    - Create or delete likes with POST, PUT /likes/{like_id}
+    - Create or delete likes with POST, DELETE /likes/{like_id}
     - Signup requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/registration/ with POST.
     - Sign in requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/login/ with POST.
     - Logout requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/logout/ with POST.
