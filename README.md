@@ -45,10 +45,10 @@ Backend application built using Django REST that allows account, posts, comments
 
 ### Manual Testing
 
-### Create post being logged out.
+### Create a post being logged out.
 
-- Access /posts and try to create post.
-- Result: Create post functionality is not available to logged out users.
+- Access /posts and try to create posts.
+- Result: Create post functionality is not available to logged-out users.
 
 ### Edit or delete posts user or being logged out.
 
@@ -62,15 +62,15 @@ Backend application built using Django REST that allows account, posts, comments
 
 ### Create or edit a post with fields with more than 50 characters.
 
-- After logging into an account try to to add a post with an exceptionally long title, genre or director.
+- After logging into an account try to add a post with an exceptionally long title, genre, or director.
 - Result: Error will be displayed and a post will not be created.
 
 ### Like a Post without being logged in.
 
 - Access /likes and try to like one of the existing posts.
-- Result: Like functionality is not available to logged out users.
+- Result: Like functionality is not available to logged-out users.
 
-### Like same post twice.
+### Like the same post twice.
 
 - Access /likes and try to like one post you previously liked.
 - Result: Message displayed saying that duplicate is not allowed.
@@ -80,10 +80,10 @@ Backend application built using Django REST that allows account, posts, comments
 - Access the like detail page /likes/'like_id' and try to delete it.
 - Result: The page is going to be a Read-Only, due to permission classes.
 
-### Create comment being logged out.
+### Create a comment while logged out.
 
-- Access /comments and try to create comment on a existing post.
-- Result: Create comment functionality is not available to logged out users.
+- Access /comments and try to create comments on an existing post.
+- Result: Create comment functionality is not available to logged-out users.
 
 ### Edit or delete comments from another user.
 
@@ -92,7 +92,7 @@ Backend application built using Django REST that allows account, posts, comments
 
 ### Verify response payload and status code.
 
-- Result: All JSON responses are sending correct field names, types and values. Permited requests are returning 200 status and unpermitted 400.
+- Result: All JSON responses are sending correct field names, types, and values. Permitted requests are returning 200 status and unpermitted 400.
 
 ### Verify basic performance
 
@@ -118,11 +118,11 @@ There are no present bugs in this version.
 
 - Deploying to Heroku:
   - Access www.heroku.com.
-  - Click on new and Create New App.
+  - Click on New and Create New App.
   - Choose an App name and a region and Create App.
-  - Acces Settings tab.
-  - Set the config vars to connect to database, cloudinary and allowed host.
-  - On the Deployment tab, connect to Github and choose the proper repository.
+  - Access the Settings tab.
+  - Set the config vars to connect to the database, cloudinary and allowed host.
+  - On the Deployment tab, connect to GitHub and choose the proper repository.
   - Deploy Branch.
 
 ### GitHub/GitPod
@@ -146,17 +146,17 @@ There are no present bugs in this version.
 
   ### Front End
 
-  - To connect with Front End application:
+  - To connect with the Front End application:
 
     - Add the frontend url to CORS_ALLOWED_ORIGINS and CLIENT_ORIGIN.
-    - Retrieve reviews with GET cinemary-api.herokuapp.com/posts. 
-    - Create, update or delete reviews with POST, PUT, DELETE /posts/{post_id}
+    - Retrieve reviews with GET cinemasry-api.herokuapp.com/posts. 
+    - Create, update, or delete reviews with POST, PUT, DELETE /posts/{post_id}
     - Retrieve comments with GET cinemary-api.herokuapp.com/comments. 
-    - Create, update or delete coments with POST, PUT, DELETE /comments/{comment_id}
+    - Create, update, or delete comments with POST, PUT, DELETE /comments/{comment_id}
     - Retrieve likes with GET cinemary-api.herokuapp.com/likes. 
     - Create or delete likes with POST, PUT /likes/{like_id}
     - Signup requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/registration/ with POST.
-    - Signin requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/login/ with POST.
+    - Sign in requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/login/ with POST.
     - Logout requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/logout/ with POST.
     - Password change requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/password/change/ with POST.
     - Username change requests must be sent to cinemary-api.herokuapp.com/dj-rest-auth/user/ with POST.
